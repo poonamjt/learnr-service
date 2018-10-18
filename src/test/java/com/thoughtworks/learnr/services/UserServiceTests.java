@@ -3,9 +3,11 @@ package com.thoughtworks.learnr.services;
 import com.thoughtworks.learnr.models.User;
 import com.thoughtworks.learnr.repositories.UserRepository;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.*;
@@ -13,11 +15,13 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceTests {
 
-    private UserRepository userRepository = mock(UserRepository.class);
+    @Mock
+    private UserRepository userRepository;
 
     private UserService userService;
 
-    public UserServiceTests ( ) {
+    @Before
+    public void setUp() throws Exception {
         this.userService = new UserService( userRepository );
     }
 
@@ -40,4 +44,6 @@ public class UserServiceTests {
         Assert.assertEquals( name, actualUser.getName());
         Assert.assertEquals( userId, actualUser.getUserId());
     }
+
+
 }
