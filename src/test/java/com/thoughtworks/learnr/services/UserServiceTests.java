@@ -30,7 +30,7 @@ public class UserServiceTests {
     @Test
     public void shouldCallRepositorySaveMethod(){
         String name = "testUser";
-        long userId = 12l;
+        Long userId = 12l;
         userService.addUser(userId, name);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
         verify(userRepository, times(1)).save( userArgumentCaptor.capture() );

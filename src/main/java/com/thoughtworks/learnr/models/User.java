@@ -3,6 +3,7 @@ package com.thoughtworks.learnr.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +12,10 @@ import java.util.Map;
 public class User {
 
     @Id
-    private long userId;
+    @NotNull
+    private Long userId;
+
+    @NotNull
     private String name;
     private Date creationDate = new Date();
     private Map<String, String> userSettings = new HashMap<>();
@@ -25,11 +29,11 @@ public class User {
         this.creationDate = creationDate;
     }
 
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(Long  userId) {
         this.userId = userId;
     }
 
