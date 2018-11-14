@@ -21,7 +21,7 @@ public class UserServiceTests {
     private UserService userService;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         this.userService = new UserService( userRepository );
     }
 
